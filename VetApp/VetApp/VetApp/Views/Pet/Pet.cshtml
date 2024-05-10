@@ -1,0 +1,136 @@
+﻿<!--  Modal content for the Pet -->
+<div class="modal fade" id="petsModal" tabindex="-1" role="dialog" aria-labelledby="myPetModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myPetModalLabel">Formulario Mascota</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <input type="hidden" id="idPetModal" />
+                    <input type="hidden" id="idClientModal" value="@ViewBag.IdClient" />
+                    <div class=" col-md-4">
+                        <label class="form-label">Nombre de la Mascota</label>
+                        <input type="text" class="form-control" id="petNameModal" />
+                        <label id="petNameModalMessage" class="form-label" style="color:red;"></label>
+                    </div>
+                    <div class=" col-md-4">
+                        <label class="form-label">Especie</label>
+                        <input type="text" class="form-control" id="petSpeciesModal" />
+                        <label id="petSpeciesModalMessage" class="form-label" style="color:red;"></label>
+                    </div>
+
+                    <div class=" col-md-4">
+                        <label class="form-label">Fecha de Nacimiento de la Mascota</label>
+                        <input type="date" class="form-control" id="birthDateModal" readonly />
+                        <label id="birthDateModalMessage" class="form-label" style="color:red;"></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="btnGuardarMascotaModal" onclick="SavaChangesPetModal()">Guardar Cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  deletePetModal -->
+<div class="modal fade" id="deletePetModal" tabindex="-1" role="dialog" aria-labelledby="myPetDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myPetDeleteModalLabel">Mensaje de Confirmación</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Está seguro que desea eliminar a esta mascota?.</p>
+                <div class="row">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="btnDeleteModal" onclick="DeletePet()">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-page">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row justify-content-between">
+                                <div class="col-md-4">
+                                    <div style="" class="mt-3 mt-md-0">
+                                        <!-- Botón de regresar -->
+                                        <a href="@Url.Action("Client","Client")" class="btn btn-link">
+                                            <i class="mdi mdi-arrow-left"></i> Regresar
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    <div style="" class="mt-3 mt-md-0">
+                                        <!-- Botón Agregar Mascota -->
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#petsModal" id="btnAddPet">Agregar Mascota</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Nombre</th>
+                                                <th>Especie</th>                                               
+                                                <th>Fecha de Nacimiento</th>
+                                                <th>Opciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var pet in ViewBag.Pets)
+                                            {
+                                                <tr>
+                                                    <td>@pet.IdPet</td>
+                                                    <td>@pet.petName</td>
+                                                    <td>@pet.petSpecies</td>                                                                           
+                                                    <td>@pet.birthDate</td>
+                                                    <td>
+                                                        <div class="dropdown d-flex justify-content-between">
+                                                            <a href="#" data-bs-placement="top" title="Editar Mascota" onclick="OpenUpdatePetModal(@pet.IdPet)">
+                                                                <i data-bs-placement="top" title="Editar Mascota" class="fas fa-pen text-info"></i>
+                                                            </a>
+                                                            <a href="#" data-bs-placement="top" title="Eliminar Mascota" onclick="OpenDeleteConfirmPetModal(@pet.IdPet)">
+                                                                <i data-bs-placement="top" title="Eliminar Mascota" class="fas fa-trash text-danger"></i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/libs/jquery/jquery.min.js"></script>
+<script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>
+<script src="~/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="~/js/pages/datatables.init.js"></script>
+<script charset="utf-8" src="~/js/Pet/Pet.js"></script>

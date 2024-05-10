@@ -1,0 +1,165 @@
+﻿<!--  Modal content for the Large example -->
+<div class="modal fade" id="productsModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myLargeModalLabel">Formulario Producto</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<input type="hidden" id="idProductModal"/>
+					<input type="hidden" id="idSupplierModal" value="@ViewBag.IdSupplier" />
+					<div class=" col-md-6">
+						<label class="form-label">Nombre Producto</label>
+						<input type="text" class="form-control" id="productModal" />
+						<label id="productModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+				<br>
+				<div class="row">
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Precio de Compra</label>
+						<input type="text" class="form-control" id="productBuyCostModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+						<label id="productBuyCostModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Precio de Venta</label>
+						<input type="text" class="form-control" id="productSellCostModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+						<label id="productSellCostModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+				<div class="row">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-primary" id="btnGuardarModal"  onclick="SavaChangesProductModal()">Guardar Cambios</button>
+					</div>
+				</div>
+				
+
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--  deleteProductModal -->
+<div class="modal fade" id="deleteProductModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myLargeModalLabel">Mensaje de Confirmación</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p>¿Está seguro que desea eliminar a este producte?.</p>
+				<br>
+				<div class="row">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-primary" id="btnDeleteModal" onclick="DeleteProduct()">Aceptar</button>
+					</div>
+				</div>
+
+
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+
+	<div class="content-page">
+		<div class="content">
+			<!-- Start Content-->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12">
+						<div class="card">	
+							<div class="card-body">
+								<div class="row justify-content-between">
+									<div class="col-md-4">
+										<div style="" class="mt-3 mt-md-0">
+											<!-- Botón de regresar -->
+											<a href="@Url.Action("Supplier","Supplier")" class="btn btn-link">
+												<i class="mdi mdi-arrow-left"></i> Regresar
+											</a>
+										</div>
+									</div><!-- end col-->
+									<div class="col-md-4 text-end">
+										<div style="" class="mt-4 mt-md-0">
+											<!-- Botón Agregar Producto -->
+											<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productsModal" id="btnAddProduct">Agregar Producto</button>
+										</div>
+									</div><!-- end col-->
+							</div>
+							<div class="row">
+								<div class="col-12">
+									<div class="card">
+										<div class="card-body">
+
+											<table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+												<thead>
+													<tr>
+														<th>Id Producto</th>
+														<th>Nombre</th>
+														<th>Precio de Compra</th>
+														<th>Precio de Venta</th>
+														<th>Opciones</th>
+													</tr>
+												</thead>
+
+
+												<tbody>
+													@foreach (var product in ViewBag.Products)
+													{
+
+														<tr>
+															<td>@product.idProduct</td>
+															<td>@product.product</td>
+															<td>@product.productBuyCost</td>
+															<td>@product.productSellCost</td>
+
+															<td>
+																<div class="dropdown d-flex justify-content-between">
+																	<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar Producto" onclick="OpenUpdateProductModal(@product.idProduct)">
+																		<i data-bs-placement="top" title="Editar Producto" class="fas fa-pen text-info"></i>
+																	</a>
+																	<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar Producto" onclick="OpenDeleteConfirmProductModal(@product.idProduct)">
+																		<i data-bs-placement="top" title="Eliminar Producto" class="fas fa-trash text-danger"></i>
+																	</a>
+																</div>
+															</td>
+
+														</tr>
+													}
+												</tbody>
+											</table>
+										</div>
+									</div>
+
+								</div>
+							</div> <!-- end row -->
+
+						</div> <!-- end card-body -->
+					</div> <!-- end card -->
+				</div> <!-- end col -->
+			</div> <!-- end row -->
+
+		</div> <!-- container -->
+
+	</div> <!-- content -->
+
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+<script src="~/libs/jquery/jquery.min.js"></script>
+@*<script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>*@
+<script src="~/js/Product/Product.js"></script>
+@*<script src="~/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="~/js/pages/datatables.init.js"></script>*@
+<script>new DataTable('');</script>

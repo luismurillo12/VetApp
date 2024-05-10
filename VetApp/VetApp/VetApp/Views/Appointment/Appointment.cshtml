@@ -1,0 +1,224 @@
+﻿            <!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+<!--  Modal content for the Large example -->
+<!-- Add New Event MODAL -->
+<div class="modal fade" id="appointmentModal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header py-3 px-4 border-bottom-0 d-block">
+				<button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+				<h5 class="modal-title" id="modal-title">Cita</h5>
+			</div>
+			<div class="modal-body px-4 pb-4 pt-0">
+				<form class="needs-validation" name="event-form" id="form-event" novalidate>
+					<div class="row">
+						<div class="col-12">
+							<div class="mb-3">
+								<input type="hidden" id="idDate" />
+								<label class="form-label">Cliente</label>
+								<select class="form-select" name="client" id="idClient" required>
+									<option value="0">Seleccione un Cliente</option>
+									@foreach (var clients in ViewBag.Clients)
+									{
+										<option value="@clients.idClient">@($"{@clients.clientName} {@clients.clientFirstLastName} {@clients.clientSecondLastName}")</option>
+									}
+								</select>
+								<label id="idClientMessage" class="form-label" style="color:red;"></label>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="mb-3">
+								<label class="form-label">Doctor</label>
+								<select class="form-select" name="doctor" id="idDoctor" required>
+									<option value="0">Seleccione un Doctor</option>
+									@foreach (var doctors in ViewBag.Doctors)
+									{
+										<option value="@doctors.IdUser">@doctors.UserName</option>
+									}
+								</select>
+								<label id="idDoctorMessage" class="form-label" style="color:red;"></label>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="mb-3">
+								<label class="form-label">Motivo</label>
+								<textarea class="form-control" id="dateReason" rows="3"></textarea>
+								@* <input class="form-control" placeholder="Agregue un motivo"
+									   type="text" name="dateReason" id="dateReason" /> *@
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="mb-3">
+								<label class="form-label">Fecha</label>
+								<input class="form-control"
+									   type="date" name="dayDate" id="dayDate" required/>
+								<label id="dayDateMessage" class="form-label" style="color:red;"></label>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="mb-3">
+								<label class="form-label">Hora</label>
+								<input class="form-control"
+									   type="time" name="hour" id="hour" required />
+								<label id="hourMessage" class="form-label" style="color:red;"></label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="modal-footer">
+							<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+							<button type="button" class="btn btn-primary" id="btnSaveAppointmentModal" onclick="SaveChangesAppointmentModal()">Guardar Cambios</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div> <!-- end modal-content-->
+	</div> <!-- end modal dialog-->
+</div>
+<!-- end modal-->
+<!--  deleteUserModal -->
+<div class="modal fade" id="deleteAppointmentModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myLargeModalLabel">Mensaje de Confirmación</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p>¿Está seguro que desea eliminar a esta cita?.</p>
+				<br>
+				<div class="row">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-primary" id="btnDeleteModal" onclick="DeleteAppointment()">Aceptar</button>
+					</div>
+				</div>
+
+
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="content-page">
+	<div class="content">
+
+		<!-- Start Content-->
+		<div class="container-fluid">
+
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-body">
+							<div style="display: flex;
+   justify-content: flex-end;">
+								<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appointmentModal" id="btnAddAppointment">Agendar nuena Cita</button>
+								@* 		<div class="col-md-2">
+								<div style="" class="mt-3 mt-md-0">
+								<!-- Large modal -->
+
+								</div>
+								</div><!-- end col--> *@
+							</div> <!-- end row -->
+							<br />
+							<div class="row">
+								<div class="col-12">
+									@if (Context.Session.GetInt32("UserIdRol") == 1)
+									{
+										<table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+											<thead>
+												<tr>
+													<th>Doctor</th>
+													<th>Fecha</th>
+													<th>Hora</th>
+													<th>Cliente</th>
+													<th>Motivo</th>
+													<th>Opciones</th>
+												</tr>
+											</thead>
+											<tbody>
+												@foreach (var appointment in ViewBag.Appointments)
+												{
+													<tr>
+														<td>@appointment.DoctorName</td>
+														<td>@appointment.DayDate</td>
+														<td>@appointment.DateHour</td>
+														<td>@appointment.ClientName</td>
+														<td>@appointment.DateReason</td>
+														<td>
+															<div class="dropdown d-flex justify-content-between">
+
+																<a href="#" data-bs-placement="top" title="Editar Cita" onclick="OpenUpdateAppointmentModal(@appointment.IdDate)">
+																	<i data-bs-placement="top" title="Editar Cita" class="fas fa-pen text-info"></i>
+																</a>
+																<a href="#" data-bs-placement="top" title="Eliminar Cita" onclick="OpenDeleteConfirmAppointmentModal(@appointment.IdDate)">
+																	<i data-bs-placement="top" title="Eliminar Cita" class="fas fa-trash text-danger"></i>
+																</a>
+															</div>
+														</td>
+													</tr>
+												}
+											</tbody>
+										</table>
+									}
+									else
+									{
+										<table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+											<thead>
+												<tr>
+													<th>Doctor</th>
+													<th>Hora</th>
+													<th>Opciones</th>
+												</tr>
+											</thead>
+											<tbody>
+												@foreach (var appointment in ViewBag.Appointments)
+												{
+													<tr>
+														<td>@appointment.DoctorName</td>
+														<td>@appointment.DateHour</td>
+														<td>
+															<div class="dropdown d-flex justify-content-between">
+
+																<a data-bs-placement="top" title="Editar Cita" onclick="OpenUpdateAppointmentModal(@appointment.IdDate)">
+																	<i data-bs-placement="top" title="Editar Cita" class="fas fa-pen text-info"></i>
+																</a>
+																<a data-bs-placement="top" title="Eliminar Cita" onclick="OpenDeleteConfirmAppointmentModal(@appointment.IdDate)">
+																	<i data-bs-placement="top" title="Eliminar Cita" class="fas fa-trash text-danger"></i>
+																</a>
+															</div>
+														</td>
+													</tr>
+												}
+											</tbody>
+										</table>
+									}
+									
+								</div>
+							</div>
+						</div>
+					</div> <!-- end card -->
+				</div><!-- end col-->
+			</div>
+			@* <input class="form-control mr-sm-2" type="search" placeholder="Type a name" aria-label="Search" id="search"> *@
+			<!-- end row -->
+
+
+
+		</div> <!-- container -->
+
+	</div> <!-- content -->
+
+</div>
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+<script src="~/libs/jquery/jquery.min.js"></script>
+<script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>
+<script src="~/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="~/js/pages/datatables.init.js"></script>
+<script charset="utf-8" src="~/js/Appointment/Appointment.js"></script>

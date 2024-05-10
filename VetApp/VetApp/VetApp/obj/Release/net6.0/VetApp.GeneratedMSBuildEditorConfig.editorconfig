@@ -1,0 +1,137 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = VetApp
+build_property.RootNamespace = VetApp
+build_property.ProjectDir = E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Administration/AgregarEmpleado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cQWdyZWdhckVtcGxlYWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Administration/EditarEmpleado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cRWRpdGFyRW1wbGVhZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Administration/Employee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Administration/UpdateUserPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cVXBkYXRlVXNlclBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Appointment/Appointment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcQXBwb2ludG1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Client/Client.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XENsaWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Forms/Forms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybXNcRm9ybXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Home/RequestNewPasswordEmailSend.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXF1ZXN0TmV3UGFzc3dvcmRFbWFpbFNlbmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Inventario/AgregarInventario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1xBZ3JlZ2FySW52ZW50YXJpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Inventario/Inventario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1xJbnZlbnRhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Payment/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Pet/CreatePet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGV0XENyZWF0ZVBldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Pet/EditPet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGV0XEVkaXRQZXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Pet/Pet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGV0XFBldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Product/Product.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Reportes/ReporteCitas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcUmVwb3J0ZUNpdGFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Reportes/ReporteCreditos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcUmVwb3J0ZUNyZWRpdG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Reportes/ReportePlanilla.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcUmVwb3J0ZVBsYW5pbGxhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Reportes/ReporteTransacciones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcUmVwb3J0ZVRyYW5zYWNjaW9uZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Service/Service.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxTZXJ2aWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Supplier/Supplier.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcU3VwcGxpZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Usuarios/AgregarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQWdyZWdhckNsaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Usuarios/Cliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ2xpZW50ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-nvmhc4qt8g
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Shared/_LayoutAutentificacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBdXRlbnRpZmljYWNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-jbo5znbftt

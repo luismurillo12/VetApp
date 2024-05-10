@@ -1,0 +1,154 @@
+﻿<!--  Modal content for the Large example -->
+<div class="modal fade" id="servicesModal" tabindex="-1" role="dialog" aria-labelledby="myServiceModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myServiceModalLabel">Formulario Servicios</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<input type="hidden" id="idServiceModal" />
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Nombre del Servicio</label>
+						<input type="text" class="form-control" id="serviceNameModal" />
+						<label id="serviceNameModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Precio</label>
+						<input type="text" class="form-control" id="serviceCostModal"/>
+						<label id="serviceCostModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+				<br>
+				<div class="row">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-primary" id="btnGuardarModal" onclick="SaveChangesServiceModal()">Guardar Cambios</button>
+					</div>
+				</div>
+
+
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--  deleteServiceModal -->
+<div class="modal fade" id="deleteServiceModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myLargeModalLabel">Mensaje de Confirmación</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p>¿Está seguro que desea eliminar este servicio?.</p>
+				<br>
+				<div class="row">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-primary" id="btnDeleteModal" onclick="DeleteService()">Aceptar</button>
+					</div>
+				</div>
+
+
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+
+
+
+<div class="content-page">
+	<div class="content">
+
+		<!-- Start Content-->
+		<div class="container-fluid">
+
+			<table class="table table-centered mb-0" id="inline-editable">
+			</table>
+
+
+
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-body">
+							<div class="row justify-content-between">
+								<div class="col-md-4">
+									<div style="" class="mt-3 mt-md-0">
+										<!-- Large modal -->
+										<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#servicesModal" id="btnAddService">Agregar Servicios</button>
+									</div>
+								</div><!-- end col-->
+							</div> <!-- end row -->
+
+							<div class="row">
+								<div class="col-12">
+									<div class="card">
+										<div class="card-body">
+
+											<table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+												<thead>
+													<tr>
+														<th>Id</th>
+														<th>Nombre Servicio</th>
+														<th>Precio</th>
+														<th>Opciones</th>
+													</tr>
+												</thead>
+
+
+												<tbody>
+													@foreach (var services in ViewBag.Services)
+													{
+
+														<tr>
+															<td>@services.idService</td>
+															<td>@services.serviceName</td>
+															<td>@services.serviceCost</td>
+															<td>
+																<div class="dropdown d-flex justify-content-between">
+																	<a href="#" data-bs-placement="top" title="Editar Servicio" onclick="OpenUpdateServiceModal(@services.idService)">
+																		<i data-bs-placement="top" title="Editar Servicio" class="fas fa-pen text-info"></i>
+																	</a>
+																	<a href="#" data-bs-placement="top" title="Eliminar Servicio" onclick="OpenDeleteConfirmServiceModal(@services.idService)">
+																		<i data-bs-placement="top" title="Eliminar Servicio" class="fas fa-trash text-danger"></i>
+																	</a>
+																</div>
+															</td>
+														</tr>
+													}
+												</tbody>
+											</table>
+										</div>
+									</div>
+
+								</div>
+							</div> <!-- end row -->
+
+						</div> <!-- end card-body -->
+					</div> <!-- end card -->
+				</div> <!-- end col -->
+			</div> <!-- end row -->
+
+		</div> <!-- container -->
+
+	</div> <!-- content -->
+
+
+</div>
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+<script src="~/libs/jquery/jquery.min.js"></script>
+<script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>
+<script src="~/js/Service/Service.js"></script>
+<script src="~/js/service/service.js"></script>
+<script src="~/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="~/js/pages/datatables.init.js"></script>

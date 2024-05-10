@@ -1,0 +1,233 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|e:\\yohan\\dise\u00F1odesarrollosistemas\\repo2\\vetapp\\vetapp\\vetapp\\vetapp\\views\\appointment\\appointment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|solutionrelative:vetapp\\views\\appointment\\appointment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|e:\\yohan\\dise\u00F1odesarrollosistemas\\repo2\\vetapp\\vetapp\\vetapp\\vetapp\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|solutionrelative:vetapp\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|e:\\yohan\\dise\u00F1odesarrollosistemas\\repo2\\vetapp\\vetapp\\vetapp\\vetapp\\controllers\\reportescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|solutionrelative:vetapp\\controllers\\reportescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|e:\\yohan\\dise\u00F1odesarrollosistemas\\repo2\\vetapp\\vetapp\\vetapp\\vetapp\\views\\reportes\\reportecitas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|solutionrelative:vetapp\\views\\reportes\\reportecitas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|e:\\yohan\\dise\u00F1odesarrollosistemas\\repo2\\vetapp\\vetapp\\vetapp\\vetapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|solutionrelative:vetapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|e:\\yohan\\dise\u00F1odesarrollosistemas\\repo2\\vetapp\\vetapp\\vetapp\\vetapp\\views\\forms\\forms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|solutionrelative:vetapp\\views\\forms\\forms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|e:\\yohan\\dise\u00F1odesarrollosistemas\\repo2\\vetapp\\vetapp\\vetapp\\vetapp\\views\\administration\\employee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|solutionrelative:vetapp\\views\\administration\\employee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|e:\\yohan\\dise\u00F1odesarrollosistemas\\repo2\\vetapp\\vetapp\\vetapp\\vetapp\\views\\payment\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|solutionrelative:vetapp\\views\\payment\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|e:\\yohan\\dise\u00F1odesarrollosistemas\\repo2\\vetapp\\vetapp\\vetapp\\vetapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|solutionrelative:vetapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|e:\\yohan\\dise\u00F1odesarrollosistemas\\repo2\\vetapp\\vetapp\\vetapp\\vetapp\\wwwroot\\js\\payment\\payment.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|solutionrelative:vetapp\\wwwroot\\js\\payment\\payment.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|e:\\yohan\\dise\u00F1odesarrollosistemas\\repo2\\vetapp\\vetapp\\vetapp\\vetapp\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|solutionrelative:vetapp\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|e:\\yohan\\dise\u00F1odesarrollosistemas\\repo2\\vetapp\\vetapp\\vetapp\\vetapp\\models\\paymentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635ED2BA-D5BF-4A8A-9D6E-49FB54D06BDC}|VetApp\\VetApp.csproj|solutionrelative:vetapp\\models\\paymentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 214,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppointmentController.cs",
+              "DocumentMoniker": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Controllers\\AppointmentController.cs",
+              "RelativeDocumentMoniker": "VetApp\\Controllers\\AppointmentController.cs",
+              "ToolTip": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Controllers\\AppointmentController.cs",
+              "RelativeToolTip": "VetApp\\Controllers\\AppointmentController.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAQwCkAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-22T01:45:28.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReportesController.cs",
+              "DocumentMoniker": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Controllers\\ReportesController.cs",
+              "RelativeDocumentMoniker": "VetApp\\Controllers\\ReportesController.cs",
+              "ToolTip": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Controllers\\ReportesController.cs",
+              "RelativeToolTip": "VetApp\\Controllers\\ReportesController.cs",
+              "ViewState": "AQIAAGoAAAAAAAAAAADwv3cAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-22T01:37:25.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReporteCitas.cshtml",
+              "DocumentMoniker": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Views\\Reportes\\ReporteCitas.cshtml",
+              "RelativeDocumentMoniker": "VetApp\\Views\\Reportes\\ReporteCitas.cshtml",
+              "ToolTip": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Views\\Reportes\\ReporteCitas.cshtml",
+              "RelativeToolTip": "VetApp\\Views\\Reportes\\ReporteCitas.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-22T01:37:14.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\appsettings.json",
+              "RelativeDocumentMoniker": "VetApp\\appsettings.json",
+              "ToolTip": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\appsettings.json",
+              "RelativeToolTip": "VetApp\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-01-24T23:17:36.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Employee.cshtml",
+              "DocumentMoniker": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Views\\Administration\\Employee.cshtml",
+              "RelativeDocumentMoniker": "VetApp\\Views\\Administration\\Employee.cshtml",
+              "ToolTip": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Views\\Administration\\Employee.cshtml",
+              "RelativeToolTip": "VetApp\\Views\\Administration\\Employee.cshtml",
+              "ViewState": "AQIAALoAAAAAAAAAAAAAAJ4AAABhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2023-12-07T02:31:41.515Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Forms.cshtml",
+              "DocumentMoniker": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Views\\Forms\\Forms.cshtml",
+              "RelativeDocumentMoniker": "VetApp\\Views\\Forms\\Forms.cshtml",
+              "ToolTip": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Views\\Forms\\Forms.cshtml",
+              "RelativeToolTip": "VetApp\\Views\\Forms\\Forms.cshtml",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAcwEUAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2023-12-07T02:30:46.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Appointment.cshtml",
+              "DocumentMoniker": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Views\\Appointment\\Appointment.cshtml",
+              "RelativeDocumentMoniker": "VetApp\\Views\\Appointment\\Appointment.cshtml",
+              "ToolTip": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Views\\Appointment\\Appointment.cshtml",
+              "RelativeToolTip": "VetApp\\Views\\Appointment\\Appointment.cshtml",
+              "ViewState": "AQIAAI4AAAAAAAAAAAAAAJ0AAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2023-12-07T02:15:16.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "VetApp\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "VetApp\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABUAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2023-12-07T02:10:47.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "VetApp\\Controllers\\PaymentController.cs",
+              "ToolTip": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "VetApp\\Controllers\\PaymentController.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAYwDYAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-07T00:10:31.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Payment.js",
+              "DocumentMoniker": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Payment\\Payment.js",
+              "RelativeDocumentMoniker": "VetApp\\wwwroot\\js\\Payment\\Payment.js",
+              "ToolTip": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Payment\\Payment.js",
+              "RelativeToolTip": "VetApp\\wwwroot\\js\\Payment\\Payment.js",
+              "ViewState": "AQIAAJMBAAAAAAAAAAAAAJoBAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2023-12-03T22:26:08.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Payment.cshtml",
+              "DocumentMoniker": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Views\\Payment\\Payment.cshtml",
+              "RelativeDocumentMoniker": "VetApp\\Views\\Payment\\Payment.cshtml",
+              "ToolTip": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Views\\Payment\\Payment.cshtml",
+              "RelativeToolTip": "VetApp\\Views\\Payment\\Payment.cshtml",
+              "ViewState": "AQIAANEBAAAAAAAAAAAEwN8BAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2023-12-03T20:19:40.657Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PaymentModel.cs",
+              "DocumentMoniker": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Models\\PaymentModel.cs",
+              "RelativeDocumentMoniker": "VetApp\\Models\\PaymentModel.cs",
+              "ToolTip": "E:\\Yohan\\Dise\u00F1oDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\Models\\PaymentModel.cs",
+              "RelativeToolTip": "VetApp\\Models\\PaymentModel.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAAAE8AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-05T16:16:08.239Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

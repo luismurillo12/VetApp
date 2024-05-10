@@ -1,0 +1,199 @@
+﻿<!--  Modal content for the Large example -->
+<div class="modal fade" id="clientsModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myLargeModalLabel">Formulario Cliente</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<input type="hidden" id="idClientModal" />
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Nombre</label>
+						<input type="text" class="form-control" id="clientNameModal" />
+						<label id="clientNameModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Primer Apellido</label>
+						<input type="text" class="form-control" id="clientFirstLastNameModal" />
+						<label id="clientFirstLastNameModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+				<br>
+				<div class="row">
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Segundo Apellido</label>
+						<input type="text" class="form-control" id="clientSecondLastNameModal" />
+						<label id="clientSecondLastNameModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Tipo de cédula</label>
+						<div style="display:flex;">
+							<select id="selectClientIdCardModal" class="form-select">
+								<option value="1">Cédula de identidad</option>
+								<option value="2">Cédula jurídica</option>
+								<option value="3">Documento de identificación de migración y extranjería (DIMEX)</option>
+							</select>
+							<input type="text" class="form-control" id="clientIdCardModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' oninput="validateClientIdCard();" onblur="ValidateClientIdCardExist()" />
+						</div>
+
+						<label id="clientIdCardModalMessage" class="form-label" style="color:red;"></label>
+
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+				<br>
+				<div class="row">
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Número de Teléfono</label>
+						<input type="text" class="form-control" id="clientphoneNumberModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+						<label id="clientphoneNumberModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+				<br>
+				<div class="row">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-primary" id="btnGuardarModal" onclick="SavaChangesClientModal()">Guardar Cambios</button>
+					</div>
+				</div>
+
+
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--  deleteClientModal -->
+<div class="modal fade" id="deleteClientModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myLargeModalLabel">Mensaje de Confirmación</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p>¿Está seguro que desea eliminar a este cliente?.</p>
+				<br>
+				<div class="row">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-primary" id="btnDeleteModal" onclick="DeleteClient()">Aceptar</button>
+					</div>
+				</div>
+
+
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+
+<div class="content-page">
+	<div class="content">
+
+		<!-- Start Content-->
+		<div class="container-fluid">
+
+			<table class="table table-centered mb-0" id="inline-editable">
+			</table>
+
+
+
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-body">
+							<div class="row justify-content-between">
+								<div class="col-md-4">
+									<div style="" class="mt-3 mt-md-0">
+										<!-- Large modal -->
+										<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clientsModal" id="btnAddClient">Agregar Cliente</button>
+									</div>
+								</div><!-- end col-->
+							</div> <!-- end row -->
+
+							<div class="row">
+								<div class="col-12">
+									<div class="card">
+										<div class="card-body">
+
+											<table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+												<thead>
+													<tr>
+														<th>Id</th>
+														<th>Cédula</th>
+														<th>Nombre</th>
+														<th>Primer Apellido</th>
+														<th>Segundo Apellido</th>
+														<th>Teléfono</th>
+														<th>Opciones</th>
+													</tr>
+												</thead>
+
+
+												<tbody>
+													@foreach (var client in ViewBag.Clients)
+													{
+
+														<tr>
+															<td>@client.idClient</td>
+															<td>@client.clientIdCard</td>
+															<td>@client.clientName</td>
+															<td>@client.clientFirstLastName</td>
+															<td>@client.clientSecondLastName</td>
+															<td>@client.clientphoneNumber</td>
+															<td>
+																<div class="dropdown d-flex justify-content-between">
+
+																	<a href="@Url.Action("Pet","Pet",new { idClient = @client.idClient})" data-bs-toggle="tooltip" data-bs-placement="top" title="Aquí podrás manejar la información de las mascotas">
+																		<i class="dripicons-folder-open" style="color: black"></i>
+																	</a>
+
+																	<div class="dropdown">
+																		<a href="#" class="dropdown-toggle arrow-none card-drop" style="color: black" data-bs-toggle="dropdown" aria-expanded="false">
+																			<i class="mdi mdi-dots-vertical"></i>
+																		</a>
+																		<div class="dropdown-menu dropdown-menu-end">
+																			<!-- item-->
+																			<a onclick="OpenUpdateClientModal(@client.idClient)" class="dropdown-item">Editar</a>
+																			<!-- item-->
+																			<a onclick="OpenDeleteConfirmClientModal(@client.idClient)" class="dropdown-item">Eliminar</a>
+																		</div>
+																	</div>
+																</div>
+															</td>
+
+														</tr>
+													}
+												</tbody>
+											</table>
+										</div>
+									</div>
+
+								</div>
+							</div> <!-- end row -->
+
+						</div> <!-- end card-body -->
+					</div> <!-- end card -->
+				</div> <!-- end col -->
+			</div> <!-- end row -->
+
+		</div> <!-- container -->
+
+	</div> <!-- content -->
+
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+<script src="~/libs/jquery/jquery.min.js"></script>
+<script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>
+<script src="~/js/Client/Client.js"></script>
+<script src="~/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="~/js/pages/datatables.init.js"></script>

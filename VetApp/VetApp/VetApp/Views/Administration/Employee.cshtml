@@ -1,0 +1,228 @@
+﻿<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+<!--  Modal content for the Large example -->
+<div class="modal fade" id="usersModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myLargeModalLabel">Formulario Empleado</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<input type="hidden" id="idUserModal" />
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Nombre</label>
+						<input type="text" class="form-control" id="userNameModal" />
+						<label id="userNameModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Primer Apellido</label>
+						<input type="text" class="form-control" id="userFirstLastNameModal" />
+						<label id="userFirstLastNameModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+				<br>
+				<div class="row">
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Segundo Apellido</label>
+						<input type="text" class="form-control" id="userSecondLastNameModal" />
+						<label id="userSecondLastNameModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Tipo de cédula</label>
+						<div style="display:flex;">
+							<select id="selectUserIdCardModal" class="form-select">
+								<option value="1">Cédula de identidad</option>
+								<option value="2">Cédula jurídica</option>
+								<option value="3">Documento de identificación de migración y extranjería (DIMEX)</option>
+							</select>
+							<input type="text" class="form-control" id="userIdCardModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' oninput="validateUserIdCard();" onblur="ValidateUserIdCardExist()" />
+						</div>
+
+						<label id="userIdCardModalMessage" class="form-label" style="color:red;"></label>
+
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+				<br>
+				<div class="row">
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Número de Teléfono</label>
+						<input type="text" class="form-control" id="userPhoneNumberModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' oninput="validatePhoneNumber();" />
+						<label id="userPhoneNumberModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Correo Electronico</label>
+						<input type="email" class="form-control" id="userMailModal" oninput="validateEmail();" />
+						<label id="userMailModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+				<br>
+				<div class="row">
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Alias</label>
+						<input type="text" class="form-control" id="userNickNameModal" oninput="ValidateAliasExist();" />
+						<label id="userNickNameModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+					<div class="col-md-6">
+						<label for="inputState" class="form-label">Rol</label>
+						<select id="idRolModal" class="form-select">
+							@foreach (var role in ViewBag.Roles)
+							{
+								<option value="@role.IdRol">@role.RolName</option>
+							}
+						</select>
+						<label id="idRolModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+
+				</div> <!-- end row -->
+				<br>
+				<div class="row">
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Contraseña</label>
+						<input type="password" class="form-control" id="userPasswordModal" oninput="validatePassword();" />
+						<label id="userPasswordModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Confirmar Contraseña</label>
+						<input type="password" class="form-control" id="userPassworConfirmModal" oninput="validatePassword();" />
+						<label id="userPassworConfirmModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+				<br>
+				<div class="row">
+					<div class="col-md-4">
+						<label for="inputState" class="form-label">Foto del Empleado</label>
+						<input type="file" data-plugins="dropify" data-height="100" id="userPictureModal" />
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+				<br>
+				<div class="row">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-primary" id="btnGuardarModal" onclick="SavaChangesUserModal()">Guardar Cambios</button>
+					</div>
+				</div>
+
+
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--  deleteUserModal -->
+<div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myLargeModalLabel">Mensaje de Confirmación</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p>¿Está seguro que desea eliminar a este usuario?.</p>
+				<br>
+				<div class="row">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-primary" id="btnDeleteModal" onclick="DeleteUser()">Aceptar</button>
+					</div>
+				</div>
+
+
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="content-page">
+	<div class="content">
+
+		<!-- Start Content-->
+		<div class="container-fluid">
+
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-body">
+							<div style="display: flex;
+   justify-content: flex-end;">
+								<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#usersModal" id="btnAddEmployee">Agregar Empleado</button>
+						@* 		<div class="col-md-2">
+									<div style="" class="mt-3 mt-md-0">
+										<!-- Large modal -->
+										
+									</div>
+								</div><!-- end col--> *@
+							</div> <!-- end row -->
+							<br/>
+							<div class="row">
+								<div class="col-12">
+									<table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+										<thead>
+											<tr>
+												<th>Nombre</th>
+												<th>Cédula</th>
+												<th>Teléfono</th>
+												<th>Correo</th>
+												<th>Rol</th>
+												<th>Foto</th>
+												<th>Opciones</th>
+											</tr>
+										</thead>
+										<tbody>
+											@foreach (var user in ViewBag.users)
+											{
+												<tr>
+													<td>@($"{@user.UserName} {@user.UserFirstLastName} {@user.UserSecondLastName}")</td>
+													<td>@user.UserIdCard</td>
+													<td>@user.UserPhoneNumber</td>
+													<td>@user.UserMail</td>
+													<td>@user.RolName</td>
+													<td>
+														@if (!String.IsNullOrEmpty(@user.UserPicture))
+														{
+															<img src="~/@user.UserPicture" class="rounded-circle avatar-xl img-thumbnail mb-2" alt="profile-image">
+														}
+														else
+														{
+															<img src="~/UsersPictures/NonProfile/NonProfile.png" class="rounded-circle avatar-xl img-thumbnail mb-2" alt="profile-image">
+														}
+													</td>
+													<td>
+														<div class="dropdown d-flex justify-content-between">
+															<a href="#" data-bs-placement="top" title="Editar Empleado" onclick="OpenUpdateUserModal(@user.IdUser)">
+																<i data-bs-placement="top" title="Editar Empleado" class="fas fa-pen text-info"></i>
+															</a>
+															<a href="#" data-bs-placement="top" title="Eliminar Empleado" onclick="OpenDeleteConfirmUserModal(@user.IdUser)">
+																<i data-bs-placement="top" title="Eliminar Empleado" class="fas fa-trash text-danger"></i>
+															</a>
+														</div>
+													</td>
+												</tr>
+											}
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div> <!-- end card -->
+				</div><!-- end col-->
+			</div>
+			@* <input class="form-control mr-sm-2" type="search" placeholder="Type a name" aria-label="Search" id="search"> *@
+			<!-- end row -->
+			
+				
+
+		</div> <!-- container -->
+
+	</div> <!-- content -->
+
+</div>
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+<script src="~/libs/jquery/jquery.min.js"></script>
+<script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>
+<script src="~/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="~/js/pages/datatables.init.js"></script>
+<script charset="utf-8" src="~/js/Administration/Administration.js"></script>

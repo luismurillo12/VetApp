@@ -1,0 +1,136 @@
+﻿			<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+	<div class="content">
+
+		<!-- Start Content-->
+		<div class="container-fluid">
+
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								@using (Html.BeginForm("ReporteTransacciones", "Reportes", FormMethod.Post, new { @class = "pt-3" }))
+								{
+									<div class="row">
+										<div class=" col-md-4">
+											<label for="inputZip" class="form-label">Fecha Inicio</label>
+											<input class="form-control" type="date" name="startDate" id="startDate" />
+										</div> <!-- end col -->
+										<div class=" col-md-4">
+											<label for="inputZip" class="form-label">Fecha Fin</label>
+											<input class="form-control" type="date" name="endDate" id="endDate" />
+										</div> <!-- end col -->
+									</div>
+									<label class="form-label" style="color:red;">@ViewBag.Message</label>
+									<br />
+									<input type="submit" class="btn btn-block btn-primary" value="Generar reporte">
+								}
+							</div>
+							<br />
+
+							@if (ViewBag.TransactionsReport != null)
+							{
+
+								<table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
+									<thead>
+										<tr>
+											<th>#Factura</th>
+											<th>#Referencia</th>
+											<th>Fecha</th>
+											<th>Total</th>
+											<th>Total Cancelado</th>
+											<th>Tipo Pago</th>
+											<th>Cliente</th>
+											<th>Tipo Factura</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										@foreach (var report in ViewBag.TransactionsReport)
+										{
+											<tr>
+												<td>@report.idInvoices</td>
+												<td>@report.numReference</td>
+												<td>@report.dateInvoices</td>
+												<td>@report.totalCancel</td>
+												<td>@report.totalCanceled</td>
+												<td>@report.paymentName</td>
+												<td>@report.clientName</td>
+												@if(report.idCredit > 0)
+												{
+													<td>Crédito</td>
+												}
+												else
+												{
+													<td>Contado</td>
+												}
+												<td>
+													<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Aquí podrás visualizar el detalle de la factura." onclick="ShowDetailsInvoicesModal(@report.idInvoices);">
+														<i class="dripicons-folder-open" style="color: black"></i>
+													</a>
+												</td>
+											</tr>
+										}
+
+									</tbody>
+								</table>
+							}
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- end row -->
+
+
+
+
+
+
+		</div>
+	</div>
+
+	<!-- ============================================================== -->
+	<!-- End Page content -->
+	<!-- ============================================================== -->
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="detailsInvoicesModal" tabindex="-1" aria-labelledby="detailsInvoicesModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="max-width: 85%;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="detailsInvoicesTitleModal"></h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<table id="dtDetailsInvoice" class="table table-striped table-bordered dt-responsive nowrap">
+					<thead>
+						<tr>
+							<th>#Detalle</th>
+							<th>Nombre</th>
+							<th>Descripción</th>
+							<th>Cantidad</th>
+							<th>Costo</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="~/libs/jquery/jquery.min.js"></script>
+<script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>
+<script charset="utf-8" src="~/js/Transactions/Transactions.js"></script>

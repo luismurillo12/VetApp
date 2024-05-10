@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\VetAppApi",
+    "\\VetAppApi\\Controllers",
+    "\\VetAppApi\\Entities",
+    "\\VetAppApi\\Models",
+    "\\VetAppApi\\Services"
+  ],
+  "SelectedNode": "\\VetAppApi\\Models\\FormsModel.cs",
+  "PreviewInSolutionExplorer": false
+}

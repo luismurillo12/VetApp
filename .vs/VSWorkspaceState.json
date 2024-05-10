@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\VetApp",
+    "\\VetApp\\VetApp",
+    "\\VetApp\\VetApp\\VetApp",
+    "\\VetApp\\VetApp\\VetApp\\Views",
+    "\\VetApp\\VetApp\\VetApp\\Views\\Forms",
+    "\\VetApp\\VetApp\\VetApp\\wwwroot",
+    "\\VetApp\\VetApp\\VetApp\\wwwroot\\js",
+    "\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Administration"
+  ],
+  "SelectedNode": "\\VetApp\\VetApp\\VetApp\\Views\\Forms\\Forms.cshtml",
+  "PreviewInSolutionExplorer": false
+}

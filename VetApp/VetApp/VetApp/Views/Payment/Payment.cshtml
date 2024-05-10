@@ -1,0 +1,703 @@
+﻿<div class="content-page">
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 style="margin-left: 45%;" class="header-title">Formulario factura</h4>
+                        <br>
+                        <br>
+                        <div style="margin-left: 19%;" class="row">
+
+
+
+                            <div class="col-md-3">
+                                <p class="mb-1 fw-bold">Servicio a facturar</p>
+
+                                <select class="form-control" id="insumosInput" data-toggle="select2" data-width="100%">
+                                    <option value="">  </option>
+                                    <optgroup label="Productos">
+                                        @foreach (var product in ViewBag.Products)
+                                        {
+                                            <option value="@product.idProduct" data-precio="@product.productSellCost">@product.product </option>
+                                        }
+                                    </optgroup>
+                                    <optgroup label="Servicios">
+                                        @foreach (var service in ViewBag.Services)
+                                        {
+                                            <option value="@service.idService" data-precio="@service.serviceCost">@service.serviceName</option>
+                                        }
+                                    </optgroup>
+                                </select>
+
+                            </div> <!-- end col -->
+
+
+                            <div class=" col-md-3">
+
+                                <label for="inputZip" class="form-label">Cantidad</label>
+                                <input type="number" class="form-control" id="cantidadInput">
+
+                            </div> <!-- end col -->
+
+                            <div class="col-md-3">
+
+                                <label for="inputZip" class="form-label">Instrucciones</label>
+                                <input type="text" class="form-control" id="instruccionesInput">
+
+                            </div> <!-- end col -->
+
+
+
+
+                        </div> <!-- end row -->
+                        <br />
+
+                        <div style="margin-left: 19%;" class="row">
+
+                            <div class="col-md-3">
+
+                                <label for="inputZip" class="form-label">Descuento por producto</label>
+                                <input type="number" class="form-control" id="descuentoInput">
+                                <br>
+                            </div> <!-- end col -->
+
+                            <div class="col-md-3">
+                                <label for="inputZip" class="form-label">Productos con Descuento</label>
+                                <input type="number" class="form-control" id="productoDInput">
+                            </div> <!-- end col -->
+
+                            <div>
+                                <button type="button" class="btn btn-primary waves-effect waves-light" id="botonAgregar">Agregar</button>
+                            </div> <!-- end col -->
+
+
+                        </div> <!-- end row -->
+
+                        <br>
+                        
+
+                        <div><br></div>
+                        <hr class="my-2">
+
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-0" id="miTabla">
+                                        <thead>
+                                            <tr>
+                                                <th>Servicio</th>
+                                                <th>Detalle</th>
+                                                <th>Cantidad</th>
+                                                <th>Precio</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+
+                            <div style="margin-left: 50px;" class="col-md-4">
+                                <br>
+                                <label for="inputZip" class="form-label">Sub Total</label>
+                                <input type="text" class="form-control" id="totalpagar" readonly>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <br>
+                                        <label for="inputZip" class="form-label">IVA Productos</label>
+                                        <input type="number" class="form-control" id="ivaPInput">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <br>
+                                        <label for="inputZip" class="form-label">IVA Servicios</label>
+                                        <input type="number" class="form-control" id="ivaSInput">
+                                    </div>
+                                </div>
+                                <br>
+                                <label for="inputZip" class="form-label">Total a Pagar</label>
+                                <input type="number" class="form-control" id="totalFInput" readonly>
+                            </div>
+                        </div> <!-- end .table-responsive-->
+
+
+
+                        <br>
+                        <hr class="my-2">
+                        <br>
+
+                        <h4 style="margin-left: 45%;" class="header-title">Procesar factura</h4>
+                        <br>
+                        <br>
+
+
+                        <div style="margin-left: 15%;" class="row">
+
+                            <div class="col-md-3">
+                                <p class="mb-1 fw-bold ">Tipo Factura</p>
+                                <select id="tipofacturaInput" class="form-select">
+                                    <option value="0">Seleccione</option>
+                                    <option value="1">Contado</option>
+                                    <option value="2">Credito</option>
+                                </select>
+                            </div> <!-- end col -->
+
+                            <div class="col-md-3">
+                                <p class="mb-1 fw-bold ">Cliente</p>
+                                <select class="form-control" data-toggle="select2" id="clienteInput" data-width="100%">
+                                    <option value="0">Seleccione</option>
+                                    @foreach (var client in ViewBag.Clients)
+                                    {
+                                        <option value="@client.idClient">@($"{@client.clientName} {@client.clientFirstLastName} {@client.clientSecondLastName}")</option>
+                                    }
+                                </select>
+                            </div> <!-- end col -->
+                            <div class="col-md-3" id="divCreditClient" style="display:none;">
+                                <p class="mb-1 fw-bold ">Crédito Cliente</p>
+                                <select class="form-control" data-toggle="select2" id="creditClientSelect" data-width="100%">
+                                </select>
+                            </div> <!-- end col -->
+                           @*  <div class="col-md-2">
+                                <label for="inputState" class="form-label">Moneda</label>
+                                <select id="monedaInput" class="form-select">
+                                    <option>Colón</option>
+                                    <option>Dolar</option>
+                                </select>
+                            </div> <!-- end col --> *@
+
+                           @*  <div class="col-md-2">
+                                <label for="inputState" class="form-label">Tipo Factura</label>
+                                <select id="tipofacturaInput" class="form-select">
+                                    <option value="0">Seleccione</option>
+                                    <option value="1">Contado</option>
+                                    <option value="2">Credito</option>
+                                </select>
+                            </div> <!-- end col --> *@
+
+                            <div class="col-md-3">
+                                <p class="mb-1 fw-bold ">Fecha</p>
+                                <input type="date" class="form-control" id="fechaInput" placeholder="YY/MM/DD">
+
+                            </div> <!-- end col -->
+
+
+
+
+
+                        </div> <!-- end row -->
+                        <br />
+
+
+                        <div class="row" style="margin-left: 10%;">
+                            <!-- Tipo de Pago -->
+                            <div class="col-md-3">
+                                <label for="inputState" class="form-label">Tipo de Pago</label>
+                                <select id="tipopagoInput" class="form-select" data-toggle="select2">
+                                    <option value="0">Seleccione Tipo Pago</option>
+                                    @foreach (var type in ViewBag.PaymentTypes)
+                                    {
+                                        <option value="@type.idPayment">@type.paymentName</option>
+                                    }
+                                </select>
+                            </div>
+
+
+                            <div class="col-md-2">
+                                <label for="inputZip" class="form-label">Total</label>
+                                <input type="number" readonly class="form-control" id="preciototalInput">
+                            </div>
+
+                            <div id="divCancelaCon" class="col-md-2">
+                                <label for="inputZip" class="form-label">Cancela Con</label>
+                                <input type="number" class="form-control" id="canceladoInput" placeholder="₡₡₡">
+                            </div>
+
+                            <div id="divCredito" style="display: none;" class="col-md-2">
+                                <label for="inputZip" class="form-label">Saldo Restante</label>
+                                <input type="number" class="form-control" id="balanceInput" placeholder="₡₡₡" readonly>
+                            </div>
+
+                            <div id="divVuelto" class="col-md-2">
+                                <label for="inputZip" class="form-label">Vuelto</label>
+                                <input type="number" class="form-control" readonly id="vueltoInput" placeholder="₡₡₡">
+                            </div>
+
+                            <div id="divReferencia" style="display: none;" class="col-md-2">
+                                <label for="inputZip" class="form-label"># Referencia</label>
+                                <input type="text" class="form-control" id="referencia">
+                            </div>
+
+
+
+                        </div>
+
+                        <br>
+                        <div style="margin-left: 19%;" class="row">
+                            <div class="col-md-3">
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+                        <button style="margin-left: 570px;" type="button" id="btnProcesar" class="btn btn-primary waves-effect waves-light" onclick="CreateInvoices();">Procesar</button>
+                        <div><br></div>
+
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+            </div> <!-- end col-->
+        </div>
+        <!-- end row-->
+
+
+
+    </div> <!-- container -->
+
+
+
+</div> <!-- content -->
+
+<!-- Modal para la Alerta de Cliente Requerido -->
+<div class="modal fade" id="clienteRequeridoModal" tabindex="-1" aria-labelledby="clienteRequeridoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="clienteRequeridoModalLabel">Cliente Requerido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Por favor, seleccione un cliente para facturas de crédito.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para la Alerta de Total de Factura Requerido -->
+<div class="modal fade" id="totalFacturaRequeridoModal" tabindex="-1" aria-labelledby="totalFacturaRequeridoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="totalFacturaRequeridoModalLabel">Total de Factura Requerido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Por favor, asegúrese de que los servicios o productos han sido agregados a la factura.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para la alerta -->
+<div class="modal fade" id="alertaModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Alerta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Por favor, selecciona un servicio o producto.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="referenciaFaltanteModal" tabindex="-1" aria-labelledby="referenciaFaltanteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="referenciaFaltanteModalLabel">Mensaje</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="MensajeValidacion"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para la Alerta de Cantidad de Productos con Descuento Inválida -->
+<div class="modal fade" id="productosDescuentoInvalidoModal" tabindex="-1" aria-labelledby="productosDescuentoInvalidoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productosDescuentoInvalidoModalLabel">Cantidad de Productos con Descuento Inválida</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                La cantidad de productos con descuento debe ser mayor que 0 y no puede exceder la cantidad total del producto.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para la Alerta de Valor de Descuento Inválido -->
+<div class="modal fade" id="descuentoInvalidoModal" tabindex="-1" aria-labelledby="descuentoInvalidoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="descuentoInvalidoModalLabel">Valor de Descuento Inválido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                El valor del descuento debe estar entre 1 y 100.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para la Alerta de Descuento Sin Especificar Productos con Descuento -->
+<div class="modal fade" id="descuentoSinProductosModal" tabindex="-1" aria-labelledby="descuentoSinProductosModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="descuentoSinProductosModalLabel">Descuento Sin Especificar Productos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Debe especificar la cantidad de productos a los que se aplica el descuento.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para la Alerta de Cancelado Requerido -->
+<div class="modal fade" id="canceladoRequeridoModal" tabindex="-1" aria-labelledby="canceladoRequeridoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="canceladoRequeridoModalLabel">Monto Cancelado Requerido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                El monto cancelado es obligatorio y debe ser mayor a 0.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para la Alerta de Cancelado en Crédito Inválido -->
+<div class="modal fade" id="canceladoCreditoInvalidoModal" tabindex="-1" aria-labelledby="canceladoCreditoInvalidoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="canceladoCreditoInvalidoModalLabel">Monto Cancelado Inválido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                El monto cancelado es obligatorio, debe ser mayor a 0 y no puede superar el total de la factura.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para la Alerta de Crédito y Referencia Requeridos -->
+<div class="modal fade" id="creditoYReferenciaRequeridosModal" tabindex="-1" aria-labelledby="creditoYReferenciaRequeridosModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="creditoYReferenciaRequeridosModalLabel">Crédito y Referencia Requeridos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                El monto cancelado y la referencia son obligatorios para pagos con tarjeta en crédito.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para la Alerta de Referencia Requerida -->
+<div class="modal fade" id="referenciaRequeridaModal" tabindex="-1" aria-labelledby="referenciaRequeridaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="referenciaRequeridaModalLabel">Referencia Requerida</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                La referencia es obligatoria para pagos con tarjeta.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para la Alerta de Cantidad Incorrecta -->
+<div class="modal fade" id="cantidadAlertaModal" tabindex="-1" aria-labelledby="cantidadIncorrectaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cantidadIncorrectaModalLabel">Alerta de Cantidad Incorrecta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                La cantidad debe ser un número mayor o igual a 1.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/libs/jquery/jquery.min.js"></script>
+<script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>
+@* <script src="~/libs/select2/js/select2.min.js"></script>
+<script src="~/js/pages/form-advanced.init.js"></script>
+<script src="~/js/app.min.js"></script> *@
+<script charset="utf-8" src="~/js/Payment/Payment.js"></script>
+
+@* <script>
+<script>
+    /////Inicializa todo
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('botonAgregar').addEventListener('click', function () {
+            var insumosInput = document.getElementById('insumosInput');
+            var cantidadInput = document.getElementById('cantidadInput');
+            var cantidad = parseFloat(cantidadInput.value);
+            var cantidadDescuentoInput = document.getElementById('productoDInput');
+            var cantidadDescuento = parseFloat(cantidadDescuentoInput.value) || 0;
+            var descuentoInputVal = parseFloat(document.getElementById('descuentoInput').value) / 100 || 0;
+            var descuentoInput = document.getElementById('descuentoInput');
+            var descuento = parseFloat(descuentoInput.value);
+            var cantidad = parseFloat(cantidadInput.value) || 0;
+            var productoDInput = document.getElementById('productoDInput');
+            var productosConDescuento = parseFloat(productoDInput.value) || 0;
+            var descuentoInput = document.getElementById('descuentoInput');
+            var descuento = parseFloat(descuentoInput.value) || 0;
+            var productoDInput = document.getElementById('productoDInput');
+            var productosConDescuento = parseFloat(productoDInput.value) || 0;
+
+
+            ////Validaciones
+            if (insumosInput.value === "") {
+                $('#alertaModal').modal('show');
+                return;
+            }
+
+            if (isNaN(cantidad) || cantidad < 1) {
+                $('#cantidadAlertaModal').modal('show');
+                return;
+            }
+
+           
+            if (descuentoInput.value && (isNaN(descuento) || descuento < 1 || descuento > 100)) {
+                $('#descuentoInvalidoModal').modal('show');
+                return;
+            }
+
+
+            if (productoDInput.value && (isNaN(productosConDescuento) || productosConDescuento < 1 || productosConDescuento > cantidad)) {
+                $('#productosDescuentoInvalidoModal').modal('show');
+                return;
+            }
+
+
+            if (descuento > 0 && (!productoDInput.value || isNaN(productosConDescuento) || productosConDescuento <= 0)) {
+                $('#descuentoSinProductosModal').modal('show');
+                return;
+            }
+
+
+
+            //////Lógica de agregar filas a la tabla
+            var servicio = insumosInput.options[insumosInput.selectedIndex].text;
+            var instrucciones = document.getElementById('instruccionesInput').value;
+            var precioUnitario = parseFloat(insumosInput.options[insumosInput.selectedIndex].getAttribute('data-precio')) || 0;
+            var precioConDescuento = descuentoInputVal > 0 ? (precioUnitario - (precioUnitario * descuentoInputVal)) : precioUnitario;
+            var precioTotalDescuento = precioConDescuento * Math.min(cantidad, cantidadDescuento);
+            var precioTotalSinDescuento = precioUnitario * (cantidad - cantidadDescuento);
+            var precioTotal = precioTotalDescuento + precioTotalSinDescuento;
+
+            var tabla = document.getElementById('miTabla').getElementsByTagName('tbody')[0];
+            var nuevaFila = tabla.insertRow();
+            nuevaFila.insertCell(0).innerHTML = servicio;
+            nuevaFila.insertCell(1).innerHTML = instrucciones;
+            nuevaFila.insertCell(2).innerHTML = cantidad;
+            nuevaFila.insertCell(3).innerHTML = precioTotal.toFixed(2);
+
+            // Crear botón de eliminar y añadir a la nueva fila
+            var btnEliminar = document.createElement('button');
+            btnEliminar.textContent = 'Eliminar';
+            btnEliminar.style.color = 'white';
+            btnEliminar.style.backgroundColor = 'red';
+            btnEliminar.style.border = '1px solid red';
+            btnEliminar.onclick = function () {
+                this.closest('tr').remove();
+                actualizarTotal();
+            };
+            var celdaEliminar = nuevaFila.insertCell();
+            celdaEliminar.appendChild(btnEliminar);
+
+
+            actualizarTotal();
+
+            // Limpiar los campos de entrada
+            document.getElementById('cantidadInput').value = '';
+            document.getElementById('instruccionesInput').value = '';
+            document.getElementById('descuentoInput').value = '';
+            document.getElementById('productoDInput').value = '';
+            $('#insumosInput').val(null).trigger('change');
+        });
+
+        document.getElementById('ivaPInput').addEventListener('input', actualizarTotal);
+        document.getElementById('ivaSInput').addEventListener('input', actualizarTotal);
+
+
+        //Lógica mostrar total y actualizar con IVAS
+        function actualizarTotal() {
+            var total = 0;
+            var tabla = document.getElementById('miTabla').getElementsByTagName('tbody')[0];
+            var filas = tabla.getElementsByTagName('tr');
+
+            for (var i = 0; i < filas.length; i++) {
+                var precio = parseFloat(filas[i].cells[3].innerHTML) || 0;
+                total += precio;
+            }
+
+            var ivaPInput = parseFloat(document.getElementById('ivaPInput').value) || 0;
+            var totalIVAProducto = total * (ivaPInput / 100);
+            var ivaSInput = parseFloat(document.getElementById('ivaSInput').value) || 0;
+            var totalIVAServicio = total * (ivaSInput / 100);
+            var totalFInput = total + totalIVAProducto + totalIVAServicio;
+
+            document.getElementById('totalpagar').value = total.toFixed(2);
+            document.getElementById('totalFInput').value = totalFInput.toFixed(2);
+
+            // Actualizar preciototalInput con el mismo valor que totalFInput
+            document.getElementById('preciototalInput').value = totalFInput.toFixed(2);
+        }
+
+
+        ////Lógica para mostrar campos distintos en tarjeta y efectivo
+        var tipoPagoInput = document.getElementById('tipopagoInput');
+        var divReferencia = document.getElementById('divReferencia');
+        var divCancelaCon = document.getElementById('divCancelaCon');
+        var divVuelto = document.getElementById('divVuelto');
+
+        tipoPagoInput.addEventListener('change', function () {
+            if (this.value === 'Tarjeta') {
+                divReferencia.style.display = 'block';
+                divCancelaCon.style.display = 'none';
+                divVuelto.style.display = 'none';
+            } else if (this.value === 'Efectivo') {
+                divReferencia.style.display = 'none';
+                divCancelaCon.style.display = 'block';
+                divVuelto.style.display = 'block';
+            } else {
+                divReferencia.style.display = 'none';
+                divCancelaCon.style.display = 'none';
+                divVuelto.style.display = 'none';
+            }
+        });
+
+
+
+        ////Lógica para obtener toda la tabla y volverla un arreglo
+        function obtenerDatosTabla() {
+            var datos = [];
+            $('#miTabla tbody tr').each(function () {
+                var fila = {
+                    servicio: $(this).find('td').eq(0).text(),
+                    detalle: $(this).find('td').eq(1).text(),
+                    cantidad: $(this).find('td').eq(2).text(),
+                    precio: $(this).find('td').eq(3).text()
+                };
+                datos.push(fila);
+            });
+            return datos;
+        }
+
+        // Función para calcular y actualizar el vuelto
+        function calcularVuelto() {
+            var total = parseFloat(preciototalInput.value) || 0;
+            var cancelado = parseFloat(canceladoInput.value) || 0;
+            var vuelto = cancelado - total;
+
+            // Asegurarse de que el vuelto no sea negativo
+            vueltoInput.value = vuelto > 0 ? vuelto.toFixed(2) : '0.00';
+        }
+
+        // Eventos para actualizar el vuelto cuando los valores cambien
+        preciototalInput.addEventListener('input', calcularVuelto);
+        canceladoInput.addEventListener('input', calcularVuelto);
+
+        // Inicializar el valor del vuelto al cargar la página
+        calcularVuelto();
+
+
+        //Validacion para la referencia
+        document.getElementById('btnProcesar').addEventListener('click', function () {
+            var tipoPago = document.getElementById('tipopagoInput').value;
+            var referencia = document.getElementById('referencia').value;
+
+            if (tipoPago === 'Tarjeta' && !referencia) {
+                $('#referenciaFaltanteModal').modal('show');
+            } else {
+                console.log('Requisitos cumplidos');
+            }
+        });
+
+        $('#btnProcesar').click(function () {
+            var datosTabla = obtenerDatosTabla();
+            console.log(datosTabla)
+        });
+
+    });
+
+
+</script> *@
+
+@* 
+</script> *@
+
+
+
+
+
+
+
+
+
+
+
+
